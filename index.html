@@ -26,32 +26,36 @@
     </div>
     <br>
     <button onclick="nextCard()">Volgende Woord</button>
+<script>
+    let words = [];
+    let currentIndex = 0;
 
-    <script>
-        // Woordenlijst (NL, Pinyin, Hanzi)
-        // CSV formaat is NL,Pinyin,Hanzi
-        const words = [
-            {nl: "hallo", pinyin: "nǐ hǎo", hanzi: "你好"},
-            {nl: "dank je", pinyin: "xièxie", hanzi: "谢谢"},
-            {nl: "Chinees", pinyin: "zhōngwén", hanzi: "中文"}
-        ];
+    // CSV inlezen
+    fetch('woorden.csv')
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n');
+            words = rows.map(row => {
+                const [nl, pinyin, hanzi] = row.split(',');
+                return { nl, pinyin, hanzi };
+            }).filter(word => word.hanzi); // Filter lege regels
+            nextCard();
+        });
 
-        let currentIndex = 0;
+    function showAnswer() {
+        document.getElementById('nederlands').style.display = 'block';
+    }
 
-        function showAnswer() {
-            document.getElementById('nederlands').style.display = 'block';
-        }
+    function nextCard() {
+        if (words.length === 0) return;
+        currentIndex = Math.floor(Math.random() * words.length); // Willekeurig
+        document.getElementById('nederlands').style.display = 'none';
+        document.getElementById('hanzi').innerText = words[currentIndex].hanzi;
+        document.getElementById('pinyin').innerText = words[currentIndex].pinyin;
+        document.getElementById('nederlands').innerText = words[currentIndex].nl;
+    }
+</script>
 
-        function nextCard() {
-            currentIndex = (currentIndex + 1) % words.length;
-            document.getElementById('nederlands').style.display = 'none';
-            document.getElementById('hanzi').innerText = words[currentIndex].hanzi;
-            document.getElementById('pinyin').innerText = words[currentIndex].pinyin;
-            document.getElementById('nederlands').innerText = words[currentIndex].nl;
-        }
 
-        // Toon de eerste kaart
-        nextCard();
-    </script>
 </body>
 </html>
