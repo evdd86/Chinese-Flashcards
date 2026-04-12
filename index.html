@@ -55,6 +55,14 @@
         display: none; 
     }
 
+  #uitleg { 
+        font-size: 0.9em; 
+        color: #333; 
+        font-weight: light; 
+        margin-top: 10px; 
+        display: none; 
+    }
+
     button { 
         margin-top: 25px; 
         padding: 12px 24px; 
@@ -79,6 +87,7 @@
         <div id="hanzi">准备</div>
         <div id="pinyin">zhǔnbèi</div>
         <div id="nederlands">Voorbereiden</div>
+        <div id="uitleg">Lorem</div>
     </div>
     <br>
     <button onclick="nextCard()">Volgend woord</button>
@@ -92,8 +101,8 @@
         .then(data => {
             const rows = data.split('\n');
             words = rows.map(row => {
-                const [nl, pinyin, hanzi] = row.split(',');
-                return { nl, pinyin, hanzi };
+                const [nl, pinyin, hanzi, uitleg] = row.split(',');
+                return { nl, pinyin, hanzi, uitleg };
             }).filter(word => word.hanzi); // Filter lege regels
             nextCard();
         });
@@ -101,6 +110,7 @@
     function showAnswer() {
     const pinyin = document.getElementById('pinyin');
     const nederlands = document.getElementById('nederlands');
+    const uitleg = document.getElementById('uitleg');
 
     // Step 1: If pinyin is hidden, show it
     if (pinyin.style.display === 'none' || pinyin.style.display === '') {
@@ -109,6 +119,7 @@
     // Step 2: If pinyin is already visible, show Dutch
     else {
         nederlands.style.display = 'block';
+        uitleg.style.display = 'block';
     }
 }
 
@@ -117,9 +128,11 @@
         currentIndex = Math.floor(Math.random() * words.length); // Willekeurig
         document.getElementById('pinyin').style.display = 'none';
         document.getElementById('nederlands').style.display = 'none';
+        document.getElementById('uitleg').style.display = 'none';
         document.getElementById('hanzi').innerText = words[currentIndex].hanzi;
         document.getElementById('pinyin').innerText = words[currentIndex].pinyin;
         document.getElementById('nederlands').innerText = words[currentIndex].nl;
+        document.getElementById('uitleg').innerText = words[currentIndex].nl;
     }
 </script>
 
