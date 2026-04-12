@@ -99,12 +99,14 @@
 
     function showAnswer() {
         document.getElementById('nederlands').style.display = 'block';
+        document.getElementById('pinyin').style.display = 'block';
     }
 
     function nextCard() {
         if (words.length === 0) return;
         currentIndex = Math.floor(Math.random() * words.length); // Willekeurig
         document.getElementById('nederlands').style.display = 'none';
+        document.getElementById('pinyin').style.display = 'none';
         document.getElementById('hanzi').innerText = words[currentIndex].hanzi;
         document.getElementById('pinyin').innerText = words[currentIndex].pinyin;
         document.getElementById('nederlands').innerText = words[currentIndex].nl;
