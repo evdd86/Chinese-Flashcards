@@ -99,8 +99,17 @@
         });
 
     function showAnswer() {
-        document.getElementById('pinyin').style.display = 'block';
-        document.getElementById('nederlands').style.display = 'block';
+    const pinyin = document.getElementById('pinyin');
+    const nederlands = document.getElementById('nederlands');
+
+    // Step 1: If pinyin is hidden, show it
+    if (pinyin.style.display === 'none' || pinyin.style.display === '') {
+        pinyin.style.display = 'block';
+    } 
+    // Step 2: If pinyin is already visible, show Dutch
+    else {
+        nederlands.style.display = 'block';
+    }
 }
 
     function nextCard() {
