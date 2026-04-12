@@ -33,7 +33,7 @@
     .card:hover { transform: translateY(-5px); }
 
     #hanzi { 
-        font-size: 5em; /* Slightly larger for better detail */
+        font-size: 4em; /* Slightly larger for better detail */
         color: #d32f2f; 
         font-weight: 500; /* Modern look: not too thick, not too thin */
         margin-bottom: 10px;
@@ -44,10 +44,11 @@
         color: #777; 
         margin: 0; 
         font-weight: 300;
+        display: none;
     }
 
     #nederlands { 
-        font-size: 1.2em; 
+        font-size: 1.5em; 
         color: #333; 
         font-weight: bold; 
         margin-top: 20px; 
@@ -71,8 +72,8 @@
 </head>
 <body>
 
-    <h1>Chinees Flashcards</h1>
-    <p>Klik op de kaart voor de betekenis</p>
+    <h1>Chinees: Flashcards</h1>
+    <p>Klik op de kaart voor pinyin en NL-vertaling</p>
     
     <div class="card" onclick="showAnswer()">
         <div id="hanzi">准备</div>
