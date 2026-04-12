@@ -97,15 +97,24 @@
 
     // CSV inlezen
     fetch('woorden.csv')
-        .then(response => response.text())
-        .then(data => {
-            const rows = data.split('\n');
-            words = rows.map(row => {
-                const [nl, pinyin, hanzi, uitleg] = row.split(',');
-                return { nl, pinyin, hanzi, uitleg };
-            }).filter(word => word.hanzi); // Filter lege regels
-            nextCard();
-        });
+    .then(response => response.text())
+    .then(data => {
+        // Split op regels en sla de header over
+        const rows = data.split(/\r?\n/).slice(1); 
+        
+        words = rows.map(row => {
+            const [nl, pinyin, hanzi, uitleg] = row.split(',');
+            return { 
+                nl: nl?.trim(), 
+                pinyin: pinyin?.trim(), 
+                hanzi: hanzi?.trim(), 
+                uitleg: uitleg?.trim() 
+            };
+        }).filter(word => word.hanzi);
+        
+        nextCard();
+    });
+
 
     function showAnswer() {
     const pinyin = document.getElementById('pinyin');
