@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinees Oefenen</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; background-color: #f0f2f5; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 350px; text-align: center; margin-top: 50px; cursor: pointer; }
+        #hanzi { font-size: 4em; color: #d32f2f; }
+        #pinyin { font-size: 1.5em; color: #555; margin: 10px 0; }
+        #nederlands { font-size: 1.2em; color: #333; font-weight: bold; margin-top: 20px; display: none; }
+        button { margin-top: 20px; padding: 10px 20px; font-size: 1em; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <h1>Chinees Flashcards</h1>
+    <p>Klik op de kaart voor de betekenis</p>
+    
+    <div class="card" onclick="showAnswer()">
+        <div id="hanzi">准备</div>
+        <div id="pinyin">zhǔnbèi</div>
+        <div id="nederlands">Voorbereiden</div>
+    </div>
+    <br>
+    <button onclick="nextCard()">Volgende Woord</button>
+
+    <script>
+        // Woordenlijst (NL, Pinyin, Hanzi)
+        // CSV formaat is NL,Pinyin,Hanzi
+        const words = [
+            {nl: "hallo", pinyin: "nǐ hǎo", hanzi: "你好"},
+            {nl: "dank je", pinyin: "xièxie", hanzi: "谢谢"},
+            {nl: "Chinees", pinyin: "zhōngwén", hanzi: "中文"}
+        ];
+
+        let currentIndex = 0;
+
+        function showAnswer() {
+            document.getElementById('nederlands').style.display = 'block';
+        }
+
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % words.length;
+            document.getElementById('nederlands').style.display = 'none';
+            document.getElementById('hanzi').innerText = words[currentIndex].hanzi;
+            document.getElementById('pinyin').innerText = words[currentIndex].pinyin;
+            document.getElementById('nederlands').innerText = words[currentIndex].nl;
+        }
+
+        // Toon de eerste kaart
+        nextCard();
+    </script>
+</body>
+</html>
