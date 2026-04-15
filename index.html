@@ -91,18 +91,18 @@
         <div id="uitleg">Lorem</div>
     </div>
     <br>
+    <button onclick="prevCard()" style="background-color: #6c757d;">Vorig woord</button>
     <button onclick="nextCard()">Volgend woord</button>
+
 <script>
     let words = [];
-    let currentIndex = 0;
+    let currentIndex = -1;
+    let history = []; // Nieuwe lijst om de volgorde te onthouden
 
-    // CSV inlezen
     fetch('woorden.csv')
     .then(response => response.text())
     .then(data => {
-        // Split op regels en sla de header over
         const rows = data.split(/\r?\n/).slice(1); 
-        
         words = rows.map(row => {
             const [nl, pinyin, hanzi, uitleg] = row.split(',');
             return { 
@@ -116,36 +116,52 @@
         nextCard();
     });
 
-
-    function showAnswer() {
-    const pinyin = document.getElementById('pinyin');
-    const nederlands = document.getElementById('nederlands');
-    const uitleg = document.getElementById('uitleg');
-
-    // Step 1: If pinyin is hidden, show it
-    if (pinyin.style.display === 'none' || pinyin.style.display === '') {
-        pinyin.style.display = 'block';
-    } 
-    // Step 2: If pinyin is already visible, show Dutch
-    else {
-        nederlands.style.display = 'block';
-        uitleg.style.display = 'block';
-    }
-}
-
-    function nextCard() {
-        if (words.length === 0) return;
-        currentIndex = Math.floor(Math.random() * words.length); // Willekeurig
+    function updateCard(word) {
         document.getElementById('pinyin').style.display = 'none';
         document.getElementById('nederlands').style.display = 'none';
         document.getElementById('uitleg').style.display = 'none';
-        document.getElementById('hanzi').innerText = words[currentIndex].hanzi;
-        document.getElementById('pinyin').innerText = words[currentIndex].pinyin;
-        document.getElementById('nederlands').innerText = words[currentIndex].nl;
-        document.getElementById('uitleg').innerText = words[currentIndex].uitleg || "";
+        document.getElementById('hanzi').innerText = word.hanzi;
+        document.getElementById('pinyin').innerText = word.pinyin;
+        document.getElementById('nederlands').innerText = word.nl;
+        document.getElementById('uitleg').innerText = word.uitleg || "";
+    }
+
+    function nextCard() {
+        if (words.length === 0) return;
+        
+        // Kies een nieuw willekeurig index
+        const newIndex = Math.floor(Math.random() * words.length);
+        
+        // Sla de huidige index op in de geschiedenis voordat we veranderen
+        if (currentIndex !== -1) {
+            history.push(currentIndex);
+        }
+        
+        currentIndex = newIndex;
+        updateCard(words[currentIndex]);
+    }
+
+    function prevCard() {
+        if (history.length === 0) return; // Geen geschiedenis? Doe niets.
+        
+        // Haal de laatste index uit de geschiedenis
+        currentIndex = history.pop();
+        updateCard(words[currentIndex]);
+    }
+
+    function showAnswer() {
+        const pinyin = document.getElementById('pinyin');
+        const nederlands = document.getElementById('nederlands');
+        const uitleg = document.getElementById('uitleg');
+
+        if (pinyin.style.display === 'none' || pinyin.style.display === '') {
+            pinyin.style.display = 'block';
+        } else {
+            nederlands.style.display = 'block';
+            uitleg.style.display = 'block';
+        }
     }
 </script>
-
 
 </body>
 </html>
