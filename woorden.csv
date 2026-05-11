@@ -1,26 +1,26 @@
-nl,pinyin,hanzi,uitleg
-ik,wŏ,我,Oorspronkelijk een pictogram van een wapen (hand met speer)
-je,nǐ,你,Combinatie van 'persoon' (亻) en de klank 'er' (尔)
-hij,tā,他,Combinatie van 'persoon' (亻) en 'ook' (也)
-zij,tā,她,Combinatie van 'vrouw' (女) en 'ook' (ye)
-wij,wŏ mén,我们,Men (们) maakt een voornaamwoord meervoud
-jullie,nǐ mén,你们,Meervoudsvorm van 'jij'
-willen,xiăng,想,Betekent ook 'denken' of 'missen' (hart onderaan)
-willen,yào,要,Geeft een sterkere wil aan dan 'xiang'
-kunnen,kĕ yǐ,可以,Letterlijk: 'toestaan' + 'door middel van'
-oefenen,liàn xí,练习,Lian (练) bevat het symbool voor zijde (zijde spinnen)
-piano,gāng qín,钢琴,Gāng (staal) + qín (snaarinstrument)
-gitaar,jí tā,吉他,Klankvertaling van 'guitar'
-basketbal,lán qiú,篮球,Lán (mand) + qiú (bal)
-honkbal,bàng qiú,棒球,Bàng (knuppel/stok) + qiú (bal)
-volleybal,pái qiú,排球,Pái (rij/rijen) + qiú (bal)
-tennis,wăng qiú,网球,Wăng (net) + qiú (bal)
-voetbal,zú qiú,足球,Zú (voet) + qiú (bal)
-spelen (voet),tī,踢,Actie met de voet: 'schoppen'
-spelen (hand),dă,打,Actie met de hand: 'slaan' (voor balsporten)
-spelen (snaar),tán,弹,Betekent letterlijk 'tokkelen' of 'schieten'
-vandaag,jīn tiān,今天,Jīn (nu) + tiān (dag)
-eerst,xiān,先,Stelt een voet voor die vooruit loopt
+nl,pinyin,hanzi,uitleg,categorie
+ik,wŏ,我,Oorspronkelijk een pictogram van een wapen (hand met speer), voornaamwoord
+je,nǐ,你,Combinatie van 'persoon' (亻) en de klank 'er' (尔), voornaamwoord
+hij,tā,他,Combinatie van 'persoon' (亻) en 'ook' (也), voornaamwoord
+zij,tā,她,Combinatie van 'vrouw' (女) en 'ook' (ye), voornaamwoord
+wij,wŏ mén,我们,Men (们) maakt een voornaamwoord meervoud, voornaamwoord
+jullie,nǐ mén,你们,Meervoudsvorm van 'jij', voornaamwoord
+willen,xiăng,想,Betekent ook 'denken' of 'missen' (hart onderaan), werkwoord
+willen,yào,要,Geeft een sterkere wil aan dan 'xiang', werkwoord
+kunnen,kĕ yǐ,可以,Letterlijk: 'toestaan' + 'door middel van', werkwoord
+oefenen,liàn xí,练习,Lian (练) bevat het symbool voor zijde (zijde spinnen), werkwoord
+piano,gāng qín,钢琴,Gāng (staal) + qín (snaarinstrument), muziekinstrument
+gitaar,jí tā,吉他,Klankvertaling van 'guitar', muziekinstrument
+basketbal,lán qiú,篮球,Lán (mand) + qiú (bal), sport
+honkbal,bàng qiú,棒球,Bàng (knuppel/stok) + qiú (bal), sport
+volleybal,pái qiú,排球,Pái (rij/rijen) + qiú (bal), sport
+tennis,wăng qiú,网球,Wăng (net) + qiú (bal), sport
+voetbal,zú qiú,足球,Zú (voet) + qiú (bal), sport
+spelen (voet),tī,踢,Actie met de voet: 'schoppen', werkwoord
+spelen (hand),dă,打,Actie met de hand: 'slaan' (voor balsporten), werkwoord
+spelen (snaar),tán,弹,Betekent letterlijk 'tokkelen' of 'schieten', werkwoord
+vandaag,jīn tiān,今天,Jīn (nu) + tiān (dag), tijd
+eerst,xiān,先,Stelt een voet voor die vooruit loopt, 
 winter,dōng tiān,冬天,Dōng (einde/winter) + tiān (dag)
 lente,chūn tiān,春天,Het karakter 春 stelt kiemende planten onder de zon voor
 herfst,qiū tiān,秋天,Graan (禾) en vuur (火): het drogen van graan na de oogst
